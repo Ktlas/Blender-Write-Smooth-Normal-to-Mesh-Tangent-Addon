@@ -1,5 +1,5 @@
-# Blender Add-on Template
-# Contributor(s): Aaron Powell (aaron@lunadigital.tv)
+# Blender Add-on for create normal in tangent
+# Contributor(s): zhoufeiy
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -34,8 +34,11 @@ from bpy.props import BoolProperty
 
 # This is where you assign any variables you need in your script. Note that they
 # won't always be assigned to the Scene object but it's a good place to start.
+
+
 def register():
     Scene.my_property = BoolProperty(default=True)
+
 
 def unregister():
     del Scene.my_property

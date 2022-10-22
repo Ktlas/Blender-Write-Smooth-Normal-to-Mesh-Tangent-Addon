@@ -1,5 +1,5 @@
-# Blender Add-on Template
-# Contributor(s): Aaron Powell (aaron@lunadigital.tv)
+# Blender Add-on for create normal in tangent
+# Contributor(s): zhoufeiy
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -15,24 +15,27 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 import bpy
-from bpy.types import Panel
+from bpy.types import Menu
 
 #
 # Add additional functions here
 #
 
-class MyPanel(Panel):
-    bl_label = 'My Awesome Panel'
-    bl_space_type = 'PROPERTIES'
-    bl_region_type= 'WINDOW'
-    bl_context = 'render'
+
+class MyPanel(Menu):
+    bl_idname = 'CALCULATE_AVERAGE_NORMAL_WRITE_TO_TANGENT'
+    bl_label = 'Write average normal to tangent'
 
     def draw(self, context):
-        row = self.layout.row()
-        row.prop(context.scene, 'my_property')
+        layout = self.layout
+        layout.operator('object.select_all',
+                        text='Select/Deselect All').action = 'TOOGLE'
+        # layout.operator
+
 
 def register():
     bpy.utils.register_class(MyPanel)
+
 
 def unregister():
     bpy.utils.unregister_class(MyPanel)
