@@ -1,5 +1,5 @@
-# Blender Add-on Template
-# Contributor(s): Aaron Powell (aaron@lunadigital.tv)
+# Blender Add-on for create normal in tangent
+# Contributor(s): zhoufeiy
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -14,25 +14,27 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-bl_info = {
-        "name": "My Awesome Add-on",
-        "description": "Single line describing my awesome add-on.",
-        "author": "Aaron Powell",
-        "version": (1, 0),
-        "blender": (2, 80, 0),
-        "location": "Properties > Render > My Awesome Panel",
-        "warning": "", # used for warning icon and text in add-ons panel
-        "wiki_url": "http://my.wiki.url",
-        "tracker_url": "http://my.bugtracker.url",
-        "support": "COMMUNITY",
-        "category": "Render"
-        }
-
 import bpy
+
+bl_info = {
+    "name": "Smooth Normal To Tangent",
+    "description": "Calculate average normal of mesh and write to mesh's tangent.",
+    "author": "zhoufeiy",
+    "version": (1, 0),
+    "blender": (3, 30, 0),
+    "location": "View 3D > Object > Write average normal to tangent",
+    "warning": "",  # used for warning icon and text in add-ons panel
+    "wiki_url": "",
+    "tracker_url": "",
+    "support": "TESTING",
+    "category": "Mesh"
+}
+
 
 #
 # Add additional functions here
 #
+
 
 def register():
     from . import properties
@@ -40,11 +42,13 @@ def register():
     properties.register()
     ui.register()
 
+
 def unregister():
     from . import properties
     from . import ui
     properties.unregister()
     ui.unregister()
+
 
 if __name__ == '__main__':
     register()
